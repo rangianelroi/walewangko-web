@@ -25,7 +25,7 @@
         </div>
         
         {{-- Background Image Carousel dengan Overlay --}}
-        <div class="absolute w-full top-0 right-0 overflow-hidden z-0" style="height: 100vh;>
+        <div class="absolute w-full top-0 right-0 overflow-hidden z-0" style="height: 100vh">
             
             {{-- 1. Ini adalah wadah carousel untuk 5 foto --}}
             {{-- Class 'kkt-header-carousel' akan kita targetkan dengan JS --}}
