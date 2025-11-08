@@ -18,7 +18,7 @@
     @forelse($abouts as $about)
     <div class="product flex flex-wrap justify-center items-center gap-[60px] even:flex-row-reverse">
       <div class="w-[470px] h-[550px] flex shrink-0 overflow-hidden">
-        <img src="{{Storage::url($about->thumbnail) }}" class="w-full h-full object-contain" alt="thumbnail">
+        <img src="{{ asset('storage/' . $about->thumbnail) }}" class="w-full h-full object-contain" alt="thumbnail">
       </div>
       <div class="flex flex-col gap-[30px] py-[50px] h-fit max-w-[500px]">
         <p class="badge w-fit bg-cp-pale-blue text-cp-light-blue p-[8px_16px] rounded-full uppercase font-bold text-sm">{{ $about->type }} Kami</p>
