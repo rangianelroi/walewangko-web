@@ -29,6 +29,7 @@
     </div>
     <div class="absolute w-full h-full top-0 right-0 overflow-hidden z-0">
         <img src="{{ asset('storage/' . $hero->banner)}}" class="object-cover w-full h-full" alt="banner">
+        <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(47, 82, 51, 0.85) 0%, rgba(0, 0, 0, 0.75) 50%, rgba(47, 82, 51, 0.85) 100%);"></div>
     </div>
     @empty
     <p class="text-black">No hero section available at the moment.</p>
