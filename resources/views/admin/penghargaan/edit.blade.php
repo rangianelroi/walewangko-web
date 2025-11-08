@@ -36,7 +36,7 @@
 
                     <div class="mt-4">
                         <x-input-label for="icon" :value="__('Ikon Penghargaan (Gambar Piala)')" />
-                        <img src="{{ Storage::url($penghargaan->icon) }}" alt="" class="rounded-2xl object-cover w-[90px] h-[90px] mb-2">
+                        <img src="{{ asset('storage/' .  $penghargaan->icon) }}" alt="" class="rounded-2xl object-cover w-[90px] h-[90px] mb-2">
                         <x-text-input id="icon" class="block mt-1 w-full" type="file" name="icon" />
                         <x-input-error :messages="$errors->get('icon')" class="mt-2" />
                     </div>

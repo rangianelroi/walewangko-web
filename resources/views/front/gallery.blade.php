@@ -50,9 +50,9 @@
                     <div class="gallery-card group bg-white flex flex-col rounded-[20px] border border-[#E8EAF2] overflow-hidden shadow-[0_10px_30px_0_#D1D4DF40] hover:shadow-[0_10px_30px_0_#D1D4DF80] hover:border-cp-dark-blue transition-all duration-300">
                         {{-- Thumbnail dengan Overlay --}}
                         <button 
-                            onclick="openImageModal('{{ Storage::url($item->image) }}', '{{ $item->title }}', '{{ $item->category }}', '{{ $item->date->format('d M Y') }}', '{{ $item->description }}')"
+                            onclick="openImageModal('{{ asset('storage/' .  $item->image) }}', '{{ $item->title }}', '{{ $item->category }}', '{{ $item->date->format('d M Y') }}', '{{ $item->description }}')"
                             class="relative w-full h-[200px] flex shrink-0 overflow-hidden bg-[#F6F7FA]">
-                            <img src="{{ Storage::url($item->image) }}" class="w-full h-full rounded-[20px] object-cover object-center transition-all duration-300 group-hover:scale-110" alt="{{ $item->title }}">
+                            <img src="{{ asset('storage/' .  $item->image) }}" class="w-full h-full rounded-[20px] object-cover object-center transition-all duration-300 group-hover:scale-110" alt="{{ $item->title }}">
                             
                             {{-- Overlay on Hover --}}
                             <div class="absolute inset-0 bg-cp-black opacity-0 group-hover:opacity-5 transition-all duration-300 flex items-center justify-center">
@@ -82,7 +82,7 @@
                                 </div>
                                 
                                 <button 
-                                    onclick="openImageModal('{{ Storage::url($item->image) }}', '{{ $item->title }}', '{{ $item->category }}', '{{ $item->date->format('d M Y') }}', '{{ $item->description }}')"
+                                    onclick="openImageModal('{{ asset('storage/' .  $item->image) }}', '{{ $item->title }}', '{{ $item->category }}', '{{ $item->date->format('d M Y') }}', '{{ $item->description }}')"
                                     class="text-cp-dark-blue font-semibold text-sm hover:text-white hover:bg-cp-dark-blue p-[8px_16px] rounded-full transition-all duration-300">
                                     Lihat Detail
                                 </button>

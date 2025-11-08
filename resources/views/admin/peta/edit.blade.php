@@ -27,7 +27,7 @@
 
                     <div class="mt-4">
                         <x-input-label for="image" :value="__('File Gambar Peta (.jpg, .png)')" />
-                        <img src="{{ Storage::url($petaDesa->image) }}" alt="" class="rounded-2xl object-cover w-[180px] h-auto mb-2">
+                        <img src="{{ asset('storage/' .  $petaDesa->image) }}" alt="" class="rounded-2xl object-cover w-[180px] h-auto mb-2">
                         <x-text-input id="image" class="block mt-1 w-full" type="file" name="image" />
                         <p class="text-sm text-gray-500 mt-1">Kosongkan jika tidak ingin mengganti gambar.</p>
                         <x-input-error :messages="$errors->get('image')" class="mt-2" />

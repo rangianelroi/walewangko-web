@@ -66,7 +66,7 @@
             <!-- Featured Image -->
             <div class="flex flex-col gap-[30px] mb-[50px]">
                 <div class="rounded-2xl overflow-hidden bg-white shadow-[0_10px_30px_0_#D1D4DF40] h-[550px]">
-                    <img src="{{ Storage::url($berita->thumbnail) }}" 
+                    <img src="{{ asset('storage/' .  $berita->thumbnail) }}" 
                          class="w-full h-full object-cover" 
                          alt="{{ $berita->judul }}">
                 </div>

@@ -46,7 +46,7 @@
     <div class="salam-content flex flex-wrap lg:flex-nowrap items-center gap-[60px] bg-white rounded-[20px] p-[30px] shadow-[0_10px_30px_0_#D1D4DF40] border border-[#E8EAF2] hover:border-cp-dark-blue transition-all duration-300">
       <!-- Foto Hukum Tua -->
       <div class="w-[470px] h-[550px] flex shrink-0 overflow-hidden rounded-[18px]">
-        <img src="{{ Storage::url($salam_kumtua->foto) }}" class="w-full h-full object-cover object-center" alt="{{ $salam_kumtua->nama_hukum_tua }}">
+        <img src="{{ asset('storage/' .  $salam_kumtua->foto) }}" class="w-full h-full object-cover object-center" alt="{{ $salam_kumtua->nama_hukum_tua }}">
       </div>
 
       <!-- Konten Pesan -->
@@ -134,7 +134,7 @@
         @forelse($statistics as $statistic)
         <div class="card w-[200px] flex flex-col items-center gap-[10px] text-center">
           <div class="mt-10 w-[55px] h-[55px] flex shrink-0 overflow-hidden">
-            <img src="{{ Storage::url($statistic->icon) }}" class="object-contain w-full h-full" alt="icon">
+            <img src="{{ asset('storage/' .  $statistic->icon) }}" class="object-contain w-full h-full" alt="icon">
           </div>
         <p class="text-white font-bold text-4xl leading-[54px]">{{ $statistic->goal }}</p>
           <p class="text-white">{{ $statistic->name }}</p>
@@ -316,7 +316,7 @@
       @forelse($berita_terbaru as $berita)
       <div class="card flex flex-col bg-white border border-[#E8EAF2] rounded-[20px] overflow-hidden hover:border-cp-dark-blue transition-all duration-300">
         <div class="thumbnail h-[200px] flex shrink-0 overflow-hidden">
-          <img src="{{ Storage::url($berita->thumbnail) }}" class="object-cover object-center w-full h-full" alt="thumbnail">
+          <img src="{{ asset('storage/' .  $berita->thumbnail) }}" class="object-cover object-center w-full h-full" alt="thumbnail">
         </div>
         <div class="flex flex-col p-[30px] gap-[14px]">
           <div class="flex items-center gap-2">

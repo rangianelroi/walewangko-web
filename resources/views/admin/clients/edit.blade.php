@@ -36,14 +36,14 @@
 
                     <div class="mt-4">
                         <x-input-label for="avatar" :value="__('Foto')" />
-                        <img src="{{ Storage::url($client->avatar) }}" alt="" class="rounded-2xl object-cover w-[90px] h-[90px]">
+                        <img src="{{ asset('storage/' .  $client->avatar) }}" alt="" class="rounded-2xl object-cover w-[90px] h-[90px]">
                         <x-text-input id="avatar" class="block mt-1 w-full" type="file" name="avatar" autofocus autocomplete="avatar" />
                         <x-input-error :messages="$errors->get('avatar')" class="mt-2" />
                     </div> 
 
                     <div class="mt-4">
                         <x-input-label for="logo" :value="__('Logo')" />
-                        <img src="{{ Storage::url($client->logo) }}" alt="" class="rounded-2xl object-cover w-[90px] h-[90px]">
+                        <img src="{{ asset('storage/' .  $client->logo) }}" alt="" class="rounded-2xl object-cover w-[90px] h-[90px]">
                         <x-text-input id="logo" class="block mt-1 w-full" type="file" name="logo" autofocus autocomplete="logo" />
                         <x-input-error :messages="$errors->get('logo')" class="mt-2" />
                     </div> 

@@ -16,7 +16,7 @@
                 @forelse($clients as $client)
                 <div class="item-card flex flex-row justify-between items-center">
                     <div class="flex flex-row items-center gap-x-3">
-                        <img src="{{ Storage::url($client->avatar) }}" alt="" class="rounded-2xl object-cover w-[90px] h-[90px]">
+                        <img src="{{ asset('storage/' .  $client->avatar) }}" alt="" class="rounded-2xl object-cover w-[90px] h-[90px]">
                         <div class="flex flex-col">
                             <h3 class="text-indigo-950 text-xl font-bold">{{ $client->name }}</h3>
                         </div>

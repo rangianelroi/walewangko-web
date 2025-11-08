@@ -35,7 +35,7 @@
                 @forelse($berita as $item)
                 <div class="card bg-white flex flex-col h-full rounded-[20px] border border-[#E8EAF2] hover:shadow-[0_10px_30px_0_#D1D4DF80] hover:border-cp-dark-blue transition-all duration-300 overflow-hidden">
                     <div class="thumbnail h-[200px] flex shrink-0 overflow-hidden">
-                        <img src="{{ Storage::url($item->thumbnail) }}" class="object-cover object-center w-full h-full" alt="thumbnail">
+                        <img src="{{ asset('storage/' .  $item->thumbnail) }}" class="object-cover object-center w-full h-full" alt="thumbnail">
                     </div>
                     <div class="flex flex-col p-[30px] gap-[14px]">
                         <div class="flex items-center gap-2">

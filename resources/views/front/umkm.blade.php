@@ -49,7 +49,7 @@
         <div class="flex flex-col md:flex-row gap-0">
           {{-- Thumbnail --}}
           <div class="thumbnail w-full md:w-[350px] h-[250px] flex shrink-0 overflow-hidden">
-            <img src="{{ Storage::url($umkm->thumbnail) }}" class="object-cover object-center w-full h-full" alt="{{ $umkm->name }}">
+            <img src="{{ asset('storage/' .  $umkm->thumbnail) }}" class="object-cover object-center w-full h-full" alt="{{ $umkm->name }}">
           </div>
 
           {{-- Content --}}
@@ -105,8 +105,8 @@
             <h4 class="font-bold text-xl mb-5">Galeri Foto</h4>
             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
               @foreach($umkm->fotos as $foto)
-              <div class="gallery-item w-full h-[150px] rounded-xl overflow-hidden cursor-pointer hover:opacity-90 hover:scale-105 transition-all duration-300 shadow-md" onclick="openImageModal('{{ Storage::url($foto->foto_path) }}')">
-                <img src="{{ Storage::url($foto->foto_path) }}" class="w-full h-full object-cover" alt="gallery">
+              <div class="gallery-item w-full h-[150px] rounded-xl overflow-hidden cursor-pointer hover:opacity-90 hover:scale-105 transition-all duration-300 shadow-md" onclick="openImageModal('{{ asset('storage/' .  $foto->foto_path) }}')">
+                <img src="{{ asset('storage/' .  $foto->foto_path) }}" class="w-full h-full object-cover" alt="gallery">
               </div>
               @endforeach
             </div>

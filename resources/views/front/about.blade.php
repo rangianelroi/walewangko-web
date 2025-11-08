@@ -61,7 +61,7 @@
             
             {{-- Wrapper untuk gambar agar responsif dan memiliki border --}}
             <div class="w-full max-w-[1130px] mx-auto rounded-[20px] overflow-hidden border border-[#E8EAF2] shadow-[0_10px_30px_0_#D1D4DF40] mt-5">
-                <img src="{{ Storage::url($peta_desa->image) }}" class="w-full h-full object-contain" alt="{{ $peta_desa->title }}">
+                <img src="{{ asset('storage/' .  $peta_desa->image) }}" class="w-full h-full object-contain" alt="{{ $peta_desa->title }}">
             </div>
         @else
             {{-- Tampilan jika peta belum di-upload --}}

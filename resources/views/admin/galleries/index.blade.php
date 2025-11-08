@@ -16,7 +16,7 @@
                 @forelse($galleries as $item)
                 <div class="item-card flex flex-row justify-between items-center">
                     <div class="flex flex-row items-center gap-x-3">
-                        <img src="{{ Storage::url($item->image) }}" alt="" class="rounded-2xl object-cover w-[90px] h-[90px]">
+                        <img src="{{ asset('storage/' .  $item->image) }}" alt="" class="rounded-2xl object-cover w-[90px] h-[90px]">
                         <div class="flex flex-col">
                             <h3 class="text-indigo-950 text-xl font-bold">{{ $item->title }}</h3>
                             <p class="text-slate-500 text-sm">Kategori: {{ $item->category }}</p>

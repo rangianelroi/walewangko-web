@@ -43,7 +43,7 @@
 
                     <div class="mt-4">
                         <x-input-label for="avatar" :value="__('Foto')" />
-                        <img src="{{ Storage::url($team->avatar) }}" alt="" class="rounded-2xl object-cover w-[90px] h-[90px]">
+                        <img src="{{ asset('storage/' .  $team->avatar) }}" alt="" class="rounded-2xl object-cover w-[90px] h-[90px]">
                         <x-text-input id="avatar" class="block mt-1 w-full" type="file" name="avatar" autofocus autocomplete="avatar" />
                         <x-input-error :messages="$errors->get('avatar')" class="mt-2" />
                     </div> 

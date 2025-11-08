@@ -39,7 +39,7 @@
 
                     <div class="mt-4">
                         <x-input-label for="image" :value="__('Ganti File Foto')" />
-                        <img src="{{ Storage::url($gallery->image) }}" alt="" class="rounded-2xl object-cover w-[90px] h-[90px] mb-2">
+                        <img src="{{ asset('storage/' .  $gallery->image) }}" alt="" class="rounded-2xl object-cover w-[90px] h-[90px] mb-2">
                         <x-text-input id="image" class="block mt-1 w-full" type="file" name="image" />
                         <x-input-error :messages="$errors->get('image')" class="mt-2" />
                     </div>

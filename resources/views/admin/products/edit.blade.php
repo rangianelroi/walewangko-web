@@ -36,7 +36,7 @@
 
                     <div class="mt-4">
                         <x-input-label for="thumbnail" :value="__('Foto')" />
-                        <img src="{{ Storage::url($product->thumbnail) }}" alt="" class="rounded-2xl object-cover w-[90px] h-[90px]">
+                        <img src="{{ asset('storage/' .  $product->thumbnail) }}" alt="" class="rounded-2xl object-cover w-[90px] h-[90px]">
                         <x-text-input id="thumbnail" class="block mt-1 w-full" type="file" name="thumbnail" autofocus autocomplete="thumbnail" />
                         <x-input-error :messages="$errors->get('thumbnail')" class="mt-2" />
                     </div>

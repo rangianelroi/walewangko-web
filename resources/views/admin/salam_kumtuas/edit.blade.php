@@ -27,7 +27,7 @@
 
                     <div class="mt-4">
                         <x-input-label for="foto" :value="__('Foto Hukum Tua')" />
-                        <img src="{{ Storage::url($salamKumtua->foto) }}" alt="" class="rounded-2xl object-cover w-[90px] h-[90px] mb-2">
+                        <img src="{{ asset('storage/' .  $salamKumtua->foto) }}" alt="" class="rounded-2xl object-cover w-[90px] h-[90px] mb-2">
                         <x-text-input id="foto" class="block mt-1 w-full" type="file" name="foto" />
                         <x-input-error :messages="$errors->get('foto')" class="mt-2" />
                     </div>

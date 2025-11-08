@@ -34,7 +34,7 @@
 
                     <div class="mt-4">
                         <x-input-label for="thumbnail" :value="__('Foto Utama (Thumbnail)')" />
-                        <img src="{{ Storage::url($umkm->thumbnail) }}" alt="" class="rounded-2xl object-cover w-[90px] h-[90px] mb-2">
+                        <img src="{{ asset('storage/' .  $umkm->thumbnail) }}" alt="" class="rounded-2xl object-cover w-[90px] h-[90px] mb-2">
                         <x-text-input id="thumbnail" class="block mt-1 w-full" type="file" name="thumbnail" />
                         <x-input-error :messages="$errors->get('thumbnail')" class="mt-2" />
                     </div>
@@ -62,7 +62,7 @@
                         <x-input-label :value="__('Galeri Foto Saat Ini')" />
                         <div class="flex flex-wrap gap-3 mt-2">
                             @forelse($umkm->fotos as $foto)
-                                <img src="{{ Storage::url($foto->foto_path) }}" alt="" class="rounded-md object-cover w-[70px] h-[70px]">
+                                <img src="{{ asset('storage/' .  $foto->foto_path) }}" alt="" class="rounded-md object-cover w-[70px] h-[70px]">
                             @empty
                                 <p class="text-sm text-gray-500">Belum ada galeri foto.</p>
                             @endforelse
