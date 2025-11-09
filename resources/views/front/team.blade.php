@@ -1,80 +1,85 @@
 @extends('front.layouts.app')
 @section('content')
 
-  <div id="header" class="bg-[#F6F7FA] relative h-[600px] -mb-[388px]">
-    <div class="container max-w-[1130px] mx-auto relative pt-10 z-10">
-  <x-navbar/>
-    </div>
+  <div id="header" class="bg-[#F6F7FA] relative h-[400px] lg:h-[600px] -mb-[250px] lg:-mb-[388px]">
+      <div class="container max-w-[1130px] mx-auto relative pt-10 z-50 p-6 lg:pt-10">
+        <x-navbar/>
+      </div>
+      <div class="absolute inset-0 flex items-center justify-center overflow-hidden opacity-5">
+          <p class="font-extrabold text-[150px] leading-[250px] lg:text-[250px] lg:leading-[375px] text-center text-cp-green">APARAT</p>
+      </div>
   </div>
   <div id="Teams" class="w-full px-[10px] relative z-10">
     <div class="container max-w-[1130px] mx-auto flex flex-col gap-[50px] items-center">
-      <div class="flex flex-col gap-[50px] items-center">
+      <div class="flex flex-col gap-6 lg:gap-[30px] items-center">
         <div class="breadcrumb flex items-center justify-center gap-[30px]">
-          <p class="text-black last-of-type:text-cp-black last-of-type:font-semibold">Home</p>
-          <span class="text-black">/</span>
-          <p class="text-cp-light-grey last-of-type:text-cp-black last-of-type:font-semibold">Aparat Desa</p>
-        </div>
+          <p class="text-cp-black opacity-60 last-of-type:text-cp-black last-of-type:opacity-100 last-of-type:font-semibold">Home</p>
+            <span class="text-black">/</span>
+          <p class="last-of-type:text-cp-black last-of-type:font-semibold">Aparatur Desa</p>
+      </div>
         <div class="flex flex-col gap-[14px] items-center text-center">
-          <h2 class="font-bold text-cp-green text-4xl leading-[45px] text-center">Aparat Desa Walewangko</h2>
-          <p class="text-black font-bold text-center leading-[30px] max-w-[600px]">Berbagi Mimpi Yang Sama Menyejahterakan Desa Walewangko</p>
+          <h2 class="text-cp-green font-bold text-2xl leading-[30px] lg:text-4xl lg:leading-[45px] text-center ">Berbagi Mimpi Yang Sama <br> Menyejahterakan Desa Walewangko</h2>
+          <p class="badge w-fit bg-cp-pale-blue text-cp-green p-[8px_16px] rounded-full uppercase font-bold text-sm">Aparatur Desa Walewangko</p>
         </div>
       </div>
       <div class="teams-card-container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[30px] justify-center">
+
         @forelse($teams as $team)
-        <div class="card bg-white flex flex-col h-full justify-center items-center p-[30px] px-[29px] gap-[30px] rounded-[20px] border border-[#E8EAF2] hover:shadow-[0_10px_30px_0_#D1D4DF80] hover:border-cp-dark-blue transition-all duration-300">
+        <div class="card bg-white flex flex-col h-full justify-center items-center p-6 lg:p-[30px] lg:px-[29px] gap-6 lg:gap-[30px] rounded-[20px] border border-white hover:shadow-[0_10px_30px_0_#D1D4DF80] hover:border-cp-dark-blue transition-all duration-300">
           <div class="w-[100px] h-[100px] flex shrink-0 items-center justify-center rounded-full bg-[linear-gradient(150.55deg,_#007AFF_8.72%,_#312ECB_87.11%)]">
             <div class="w-[90px] h-[90px] rounded-full overflow-hidden">
-              <img src="{{ asset('storage/' .  $team->avatar) }}" class="object-cover w-full h-full object-center" alt="photo">
+              <img src="{{ asset('storage/' . $team->avatar)}}" class="object-cover w-full h-full object-center" alt="photo">
             </div>
           </div>
           <div class="flex flex-col gap-1 text-center">
-            <p class="font-bold text-xl leading-[30px]">{{$team->name}}</p>
-            <p class="text-black">{{$team->occupation}}</p>
+            <p class="font-bold text-xl leading-[30px]">{{ $team->name }}</p>
+            <p class="text-cp-black">{{ $team->occupation }}</p>
           </div>
           <div class="flex items-center justify-center gap-[10px]">
             <div class="w-6 h-6 flex shrink-0">
-              <img src="assets/icons/global.svg" alt="icon">
+              <img src="{{asset('assets/icons/global.svg')}}" alt="icon">
             </div>
-            <p class="text-cp-dark-blue font-semibold">{{$team->location}}</p>
+            <p class="text-cp-dark-blue font-semibold">{{ $team->location }}</p>
           </div>
         </div>
         @empty
-          <p>No team members found.</p>
+        <p class="text-cp-black col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-4 text-center">No team members available at the moment.</p>
         @endforelse
       </div>
     </div>
   </div>
   <div id="Awards" class="container max-w-full mx-auto flex flex-col gap-[30px] mt-20 bg-white">
-    <div class="container max-w-[1000px] mx-auto py-10">
+   <div class="container max-w-[1000px] mx-auto py-16 lg:py-10 px-6 lg:px-0">
       <div class="flex items-center justify-between">
         <div class="flex flex-col gap-[14px]">
-          <p class="badge w-fit bg-cp-pale-blue text-cp-light-blue p-[8px_16px] rounded-full uppercase font-bold text-sm">PRESTASI KAMI</p>
+          <p class="badge w-fit bg-cp-pale-blue text-cp-green p-[8px_16px] rounded-full uppercase font-bold text-sm">PRESTASI KAMI</p>
           <h2 class="font-bold text-cp-green text-4xl leading-[45px]">Melayani Sepenuh Hati<br>Meraih Prestasi</h2>
         </div>
       </div>
       <div class="awards-card-container grid grid-cols-1 mt-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[30px] justify-center">
         @forelse ($penghargaans as $penghargaan)
-        <div class="card bg-white flex flex-col h-full p-[30px] gap-[30px] rounded-[20px] border border-[#E8EAF2] hover:border-cp-dark-blue transition-all duration-300">
+        <div class="card bg-white flex flex-col h-full p-6 lg:p-[30px] gap-6 lg:gap-[30px] rounded-[20px] border border-[#E8EAF2] hover:border-cp-dark-blue transition-all duration-300">
           <div class="w-[55px] h-[55px] flex shrink-0">
             <img src="{{asset('assets/icons/cup-blue.svg')}}" alt="icon">
           </div>
           <hr class="border-[#E8EAF2]">
           <p class="font-bold text-xl leading-[30px]">{{ $penghargaan->name}}</p>
           <hr class="border-[#E8EAF2]">
-          <p class="text-black">{{ $penghargaan->lokasi_tahun }}</p>
+          <p class="text-cp-black">{{ $penghargaan->lokasi_tahun }}</p>
         </div>
         @empty
-          <p class="text-white">No Awards available at the moment.</p>
+          <p class="text-white text-center col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-4">No Awards available at the moment.</p>
         @endforelse
       </div>
     </div>
   </div>
+  
   <footer class="bg-cp-black w-full relative overflow-hidden mt-20">
-    <div class="container max-w-[1130px] mx-auto flex flex-wrap gap-y-4 items-center justify-between pt-[100px] pb-[220px] relative z-10">
-      <div class="flex flex-col gap-10">
+    <div class="container max-w-[1130px] mx-auto flex flex-col lg:flex-row gap-10 lg:gap-y-4 items-center lg:items-start lg:justify-between pt-16 lg:pt-[100px] pb-40 lg:pb-[220px] relative z-10 p-6 lg:p-0">
+      <div class="flex flex-col gap-10 items-center lg:items-start">
         <div class="flex items-center gap-3">
           <div class="flex shrink-0 h-[43px] overflow-hidden">
-              <img src="{{asset('assets/logo/logo.svg')}}" class="object-contain w-full h-full" alt="logo">
+              <img src="{{asset('assets/logo/logo-minahasa.png')}}" class="object-contain w-full h-full" alt="logo">
           </div>
           <div class="flex flex-col">
             <p id="CompanyName" class="font-extrabold text-xl leading-[30px] text-cp-light-grey">WALEWANGKO</p>
@@ -104,20 +109,20 @@
           </a>
         </div>
       </div>
-      <div class="flex flex-wrap gap-[50px]">
-        <div class="flex flex-col w-[200px] gap-3">
+      <div class="flex flex-wrap gap-10 lg:gap-[50px] w-full lg:w-auto justify-center lg:justify-start">
+        <div class="flex flex-col w-full sm:w-[200px] gap-3 text-center lg:text-left">
           <p class="font-bold text-lg text-cp-light-grey">Navigasi Utama</p>
           <a href="{{ route('front.about') }}" class="text-white hover:text-white transition-all duration-300">Profil Desa</a>
           <a href="{{ route('front.team') }}" class="text-white hover:text-white transition-all duration-300">Aparat Desa</a>
           <a href="{{ route('front.berita_index') }}" class="text-white hover:text-white transition-all duration-300">Informasi Desa</a>
           <a href="{{ route('front.gallery') }}" class="text-white hover:text-white transition-all duration-300">Galeri</a>
         </div>
-        <div class="flex flex-col w-[200px] gap-3">
+       <div class="flex flex-col w-full sm:w-[200px] gap-3 text-center lg:text-left">
           <p class="font-bold text-lg text-cp-light-grey">Potensi & Layanan Desa</p>
           <a href="{{ route('front.umkm') }}" class="text-white hover:text-white transition-all duration-300">UMKM Desa</a>
           <a href="{{ route('front.about') }}" class="text-white hover:text-white transition-all duration-300">Peta Wilayah Desa</a>
         </div>
-        <div class="flex flex-col w-[200px] gap-3">
+        <div class="flex flex-col w-full sm:w-[200px] gap-3 text-center lg:text-left">
           <p class="font-bold text-lg text-cp-light-grey">Tautan Terkait</p>
           <a href="https://minahasa.go.id" class="text-white hover:text-white transition-all duration-300">Pemkab Minahasa</a>
           <a href="{{ route('front.appointment') }}" class="text-white hover:text-white transition-all duration-300">Hubungi Kami</a>
@@ -125,10 +130,17 @@
         </div>
       </div>
     </div>
-    <div class="absolute -bottom-[135px] w-full">
-      <p class="font-extrabold text-[180px] leading-[375px] text-center text-white opacity-5">WALEWANGKO</p>
+    <div class="absolute -bottom-[70px] lg:-bottom-[135px] w-full">
+      <p class="block lg:hidden font-extrabold text-[100px] leading-[200px] text-center text-white opacity-5">WLKO</p>
+      <p class="hidden lg:block font-extrabold text-[100px] leading-[200px] lg:text-[180px] lg:leading-[375px] text-center text-white opacity-5">WALEWANGKO</p>
     </div>
   </footer>
-
 @endsection
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  
+@push('after-scripts')
+{{-- JavaScript --}}
+<script src="{{ asset('js/menu-toggle.js') }}"></script>
+@endpush
 

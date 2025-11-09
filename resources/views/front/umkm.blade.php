@@ -1,9 +1,9 @@
 @extends('front.layouts.app')
 @section('content')
   <div id="header" class="bg-[#F6F7FA] relative overflow-hidden">
-    <div class="container max-w-[1130px] mx-auto relative pt-10 z-10">
+    <div class="container max-w-[1130px] mx-auto relative pt-10 z-10 p-6 lg:p-0">
       <x-navbar/>
-      <div id="Hero" class="flex flex-col gap-[30px] mt-20 pb-20">
+      <div id="Hero" class="flex flex-col gap-[30px] mt-10 lg:mt-20 pb-16 lg:pb-20">
         <div class="flex items-center bg-white p-[8px_16px] gap-[10px] rounded-full w-fit">
           <div class="w-5 h-5 flex shrink-0 overflow-hidden">
             <img src="{{asset('assets/icons/crown.svg')}}" class="object-contain" alt="icon">
@@ -11,128 +11,126 @@
           <p class="font-semibold text-sm">UMKM Desa Walewangko</p>
         </div>
         <div class="flex flex-col gap-[10px]">
-          <h1 class="text-cp-green font-extrabold text-[50px] leading-[65px] max-w-[536px]">Produk Lokal Berkualitas</h1>
-          <p class="text-black leading-[30px] max-w-[437px]">Dukung produk lokal UMKM Desa Walewangko dan tingkatkan perekonomian desa</p>
+          <h1 class="text-cp-green font-extrabold text-3xl leading-snug lg:text-[50px] lg:leading-[65px] max-w-[536px]">Produk Lokal Berkualitas</h1>
+          <p class="text-cp-black leading-relaxed lg:leading-[30px] max-w-[437px]">Dukung produk lokal UMKM Desa Walewangko dan tingkatkan perekonomian desa</p>
         </div>
       </div>
     </div>
   </div>
 
-  <div id="UMKM" class="container max-w-[1130px] mx-auto flex flex-col gap-[30px] mt-20">
+  <div id="UMKM" class="container max-w-[1130px] mx-auto flex flex-col gap-[30px] mt-20 p-6 lg:p-0">
     <div class="flex items-center justify-between">
       <div class="flex flex-col gap-[14px]">
-        <p class="badge w-fit bg-cp-pale-blue text-cp-light-blue p-[8px_16px] rounded-full uppercase font-bold text-sm">UMKM DESA</p>
-        <h2 class="font-bold text-4xl leading-[45px]">Produk & Jasa<br>Desa Walewangko</h2>
+       <p class="badge w-fit bg-cp-pale-blue text-cp-light-blue p-[8px_16px] rounded-full uppercase font-bold text-sm">DAFTAR UMKM</p>
+       <h2 class="font-bold text-2xl leading-snug lg:text-4xl lg:leading-[45px]">Usaha Mikro Kecil dan Menengah<br>Desa Walewangko</h2>
       </div>
     </div>
 
     {{-- Filter Kategori --}}
     <div class="flex flex-wrap items-center gap-3">
-      <a href="{{ route('front.umkm') }}" class="p-[8px_16px] rounded-full font-semibold transition-all duration-300 {{ !request('kategori') ? 'bg-cp-dark-blue text-white' : 'bg-white border border-[#E8EAF2] text-cp-black hover:border-cp-dark-blue' }}">
+      <a href="{{ route('front.umkm') }}" class="p-[8px_16px] rounded-full font-semibold transition-all duration-300 {{ !request('kategori') ? 'bg-[#4A3728] text-white' : 'bg-white border border-[#E8EAF2] text-cp-black hover:border-cp-dark-blue' }}">
         Semua
       </a>
       @php
         $kategoris = \App\Models\Umkm::select('kategori')->distinct()->get()->pluck('kategori');
       @endphp
       @foreach($kategoris as $kat)
-        <a href="{{ route('front.umkm', ['kategori' => $kat]) }}" class="p-[8px_16px] rounded-full font-semibold transition-all duration-300 {{ request('kategori') == $kat ? 'bg-cp-dark-blue text-white' : 'bg-white border border-[#E8EAF2] text-cp-black hover:border-cp-dark-blue' }}">
+        <a href="{{ route('front.umkm', ['kategori' => $kat]) }}" class="p-[8px_16px] rounded-full font-semibold transition-all duration-300 {{ request('kategori') == $kat ? 'bg-[#4A3728] text-white' : 'bg-white border border-[#E8EAF2] text-cp-black hover:border-cp-dark-blue' }}">
           {{ $kat }}
         </a>
       @endforeach
     </div>
 
-    {{-- List UMKM Cards (Horizontal Layout) --}}
-    <div class="flex flex-col gap-5">
-      @forelse($umkms as $umkm)
-      <div class="umkm-card bg-white border border-[#E8EAF2] rounded-[20px] overflow-hidden hover:border-cp-dark-blue transition-all duration-300">
-        {{-- Main Card Content --}}
-        <div class="flex flex-col md:flex-row gap-0">
-          {{-- Thumbnail --}}
-          <div class="thumbnail w-full md:w-[350px] h-[250px] flex shrink-0 overflow-hidden">
-            <img src="{{ asset('storage/' .  $umkm->thumbnail) }}" class="object-cover object-center w-full h-full" alt="{{ $umkm->name }}">
-          </div>
+      {{-- List UMKM Cards (Horizontal Layout) --}}
+      <div class="flex flex-col gap-5">
+        @forelse($umkms as $umkm)
+        <div class="umkm-card bg-white border border-[#E8EAF2] rounded-[20px] overflow-hidden hover:border-cp-dark-blue transition-all duration-300">
+          {{-- Main Card Content --}}
+          <div class="p-6 lg:p-[30px] flex flex-col sm:flex-row justify-between items-start gap-4">
+            {{-- Thumbnail --}}
+            <div class="thumbnail w-full sm:w-[250px] md:w-[350px] h-[250px] flex shrink-0 overflow-hidden rounded-xl sm:rounded-[20px]">
+              <img src="{{ asset('storage/' .  $umkm->thumbnail) }}" class="object-cover object-center w-full h-full" alt="{{ $umkm->name }}">
+            </div>
 
-          {{-- Content --}}
-          <div class="flex-1 flex flex-col p-[30px] gap-5">
-            {{-- Category Badge --}}
-            <div class="flex items-start">
+            {{-- Content --}}
+            <div class="flex-1 flex flex-col gap-5 pt-5 sm:pt-0">
+              {{-- Category Badge --}}
+              <div class="flex items-start">
               <span class="inline-block text-sm font-bold bg-cp-pale-blue text-cp-light-blue px-5 py-2 rounded-full">{{ $umkm->kategori }}</span>
-            </div>
-            
-            {{-- Title --}}
-            <h3 class="font-bold text-2xl leading-[30px]">{{ $umkm->name }}</h3>
-            
-            {{-- Description (Full text) --}}
-            <p class="leading-[28px] text-black flex-1">{{ $umkm->deskripsi }}</p>
-
-            {{-- Info Row --}}
-            <div class="flex flex-wrap items-center gap-6 pt-4 border-t border-[#E8EAF2]">
-              @if($umkm->kisaran_harga)
-              <div class="flex items-center gap-3">
-                <div class="w-6 h-6 flex shrink-0 overflow-hidden">
-                  <img src="{{asset('assets/icons/dollar-square.svg')}}" class="object-contain" alt="icon">
-                </div>
-                <p class="text-sm text-cp-black font-semibold">{{ $umkm->kisaran_harga }}</p>
               </div>
-              @endif
+              
+              {{-- Title --}}
+              <h3 class="font-bold text-2xl leading-[30px]">{{ $umkm->name }}</h3>
+              
+              {{-- Description (Full text) --}}
+            <p class="leading-[28px] text-justify text-cp-black flex-1">{{ $umkm->deskripsi }}</p>
 
-              @if($umkm->lokasi)
-              <div class="flex items-center gap-3">
-                <div class="w-6 h-6 flex shrink-0 overflow-hidden">
-                  <img src="{{asset('assets/icons/building-4-black.svg')}}" class="object-contain" alt="icon">
+              {{-- Info Row --}}
+              <div class="flex flex-wrap items-center gap-6 pt-4 border-t border-[#E8EAF2]">
+                @if($umkm->kisaran_harga)
+                <div class="flex items-center gap-3">
+                  <div class="w-6 h-6 flex shrink-0 overflow-hidden">
+                    <img src="{{asset('assets/icons/dollar-square.svg')}}" class="object-contain" alt="icon">
+                  </div>
+                  <p class="text-sm text-black font-semibold">{{ $umkm->kisaran_harga }}</p>
                 </div>
-                <p class="text-sm text-cp-black font-semibold">{{ $umkm->lokasi }}</p>
-              </div>
-              @endif
+                @endif
 
-              {{-- Dropdown Button --}}
-              @if($umkm->fotos->count() > 0)
-              <button onclick="toggleGallery({{ $umkm->id }})" class="ml-auto flex items-center gap-3 bg-cp-black text-white p-[10px] rounded-xl font-semibold hover:shadow-[0_10px_30px_0_#D1D4DF80] transition-all duration-300">
-                <span class="text-sm text-white font-semibold">Lihat Galeri</span>
-                <div class="arrow-icon w-5 h-5 flex shrink-0 transition-all duration-300" id="arrow-{{ $umkm->id }}">
-                  <img src="{{asset('assets/icons/arrow-circle-down.svg')}}" class="object-contain" alt="icon">
+                @if($umkm->lokasi)
+                <div class="flex items-center gap-3">
+                  <div class="w-6 h-6 flex shrink-0 overflow-hidden">
+                    <img src="{{asset('assets/icons/building-4-black.svg')}}" class="object-contain" alt="icon">
+                  </div>
+                  <p class="text-sm text-black font-semibold">{{ $umkm->lokasi }}</p>
                 </div>
-              </button>
-              @endif
-            </div>
-          </div>
-        </div>
+                @endif
 
-        {{-- Gallery Section (Hidden by default) --}}
-        @if($umkm->fotos->count() > 0)
-        <div id="gallery-{{ $umkm->id }}" class="gallery-content hidden border-t border-[#E8EAF2]">
-          <div class="p-[30px] bg-[#F6F7FA]">
-            <h4 class="font-bold text-xl mb-5">Galeri Foto</h4>
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-              @foreach($umkm->fotos as $foto)
-              <div class="gallery-item w-full h-[150px] rounded-xl overflow-hidden cursor-pointer hover:opacity-90 hover:scale-105 transition-all duration-300 shadow-md" onclick="openImageModal('{{ asset('storage/' .  $foto->foto_path) }}')">
-                <img src="{{ asset('storage/' .  $foto->foto_path) }}" class="w-full h-full object-cover" alt="gallery">
+                {{-- Dropdown Button --}}
+                @if($umkm->fotos->count() > 0)
+                <button onclick="toggleGallery({{ $umkm->id }})" class="ml-auto flex items-center gap-3 bg-cp-pale-blue text-white p-[10px] rounded-xl font-semibold hover:shadow-[0_10px_30px_0_#D1D4DF80] transition-all duration-300">
+                  <span class="text-sm text-cp-green font-semibold">Lihat Galeri</span>
+                  <div class="arrow-icon w-5 h-5 flex shrink-0 transition-all duration-300" id="arrow-{{ $umkm->id }}">
+                    <img src="{{asset('assets/icons/arrow-circle-down.svg')}}" class="object-contain" alt="icon">
+                  </div>
+                </button>
+                @endif
               </div>
-              @endforeach
             </div>
           </div>
-        </div>
-        @endif
-      </div>
-      @empty
-      <div class="flex flex-col items-center gap-4 py-10">
-        <div class="w-20 h-20 flex shrink-0">
-          <img src="{{asset('assets/icons/shop.svg')}}" class="w-full h-full object-contain opacity-50" alt="empty">
-        </div>
-        <p class="text-cp-light-grey text-center">Belum ada UMKM untuk ditampilkan.</p>
-      </div>
-      @endforelse
-    </div>
 
-    {{-- Pagination --}}
-    @if($umkms->hasPages())
-    <div class="flex justify-center mt-10">
-      {{ $umkms->links() }}
-    </div>
-    @endif
+          {{-- Gallery Section (Hidden by default) --}}
+          @if($umkm->fotos->count() > 0)
+          <div id="gallery-{{ $umkm->id }}" class="gallery-content hidden border-t border-[#E8EAF2]">
+            <div class="p-6 lg:p-[30px] bg-[#F6F7FA]">
+              <h4 class="font-bold text-xl mb-5">Galeri Foto</h4>
+              <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                @foreach($umkm->fotos as $foto)
+                <div class="gallery-item w-full h-[150px] rounded-xl overflow-hidden cursor-pointer hover:opacity-90 hover:scale-105 transition-all duration-300 shadow-md" onclick="openImageModal('{{ asset('storage/' .  $foto->foto_path) }}')">
+                  <img src="{{ asset('storage/' .  $foto->foto_path) }}" class="w-full h-full object-cover" alt="gallery">
+                </div>
+                @endforeach
+              </div>
+            </div>
+          </div>
+          @endif
+        </div>
+        @empty
+        <div class="flex flex-col items-center gap-4 py-10">
+          <div class="w-20 h-20 flex shrink-0">
+            <img src="{{asset('assets/icons/shop.svg')}}" class="w-full h-full object-contain opacity-50" alt="empty">
+          </div>
+          <p class="text-cp-black text-center">Belum ada UMKM untuk ditampilkan.</p>
+        </div>
+        @endforelse
+      </div>
+
+      {{-- Pagination --}}
+      @if($umkms->hasPages())
+      <div class="flex justify-center mt-10">
+        {{ $umkms->links() }}
+      </div>
+      @endif
   </div>
-
-
   {{-- Image Modal --}}
   <div id="imageModal" class="fixed inset-0 bg-gray-900/80 z-50 hidden flex items-center justify-center p-4" onclick="closeImageModal()">
     <div class="relative max-w-[90vw] max-h-[90vh]">
@@ -146,11 +144,11 @@
   </div>
 
   <footer class="bg-cp-black w-full relative overflow-hidden mt-20">
-    <div class="container max-w-[1130px] mx-auto flex flex-wrap gap-y-4 items-center justify-between pt-[100px] pb-[220px] relative z-10">
-      <div class="flex flex-col gap-10">
+    <div class="container max-w-[1130px] mx-auto flex flex-col lg:flex-row gap-10 lg:gap-y-4 items-center lg:items-start lg:justify-between pt-16 lg:pt-[100px] pb-40 lg:pb-[220px] relative z-10 p-6 lg:p-0">
+      <div class="flex flex-col gap-10 items-center lg:items-start">
         <div class="flex items-center gap-3">
           <div class="flex shrink-0 h-[43px] overflow-hidden">
-              <img src="{{asset('assets/logo/logo.svg')}}" class="object-contain w-full h-full" alt="logo">
+              <img src="{{asset('assets/logo/logo-minahasa.png')}}" class="object-contain w-full h-full" alt="logo">
           </div>
           <div class="flex flex-col">
             <p id="CompanyName" class="font-extrabold text-xl leading-[30px] text-cp-light-grey">WALEWANGKO</p>
@@ -180,20 +178,20 @@
           </a>
         </div>
       </div>
-      <div class="flex flex-wrap gap-[50px]">
-        <div class="flex flex-col w-[200px] gap-3">
+      <div class="flex flex-wrap gap-10 lg:gap-[50px] w-full lg:w-auto justify-center lg:justify-start">
+        <div class="flex flex-col w-full sm:w-[200px] gap-3 text-center lg:text-left">
           <p class="font-bold text-lg text-cp-light-grey">Navigasi Utama</p>
           <a href="{{ route('front.about') }}" class="text-white hover:text-white transition-all duration-300">Profil Desa</a>
           <a href="{{ route('front.team') }}" class="text-white hover:text-white transition-all duration-300">Aparat Desa</a>
           <a href="{{ route('front.berita_index') }}" class="text-white hover:text-white transition-all duration-300">Informasi Desa</a>
           <a href="{{ route('front.gallery') }}" class="text-white hover:text-white transition-all duration-300">Galeri</a>
         </div>
-        <div class="flex flex-col w-[200px] gap-3">
+       <div class="flex flex-col w-full sm:w-[200px] gap-3 text-center lg:text-left">
           <p class="font-bold text-lg text-cp-light-grey">Potensi & Layanan Desa</p>
           <a href="{{ route('front.umkm') }}" class="text-white hover:text-white transition-all duration-300">UMKM Desa</a>
           <a href="{{ route('front.about') }}" class="text-white hover:text-white transition-all duration-300">Peta Wilayah Desa</a>
         </div>
-        <div class="flex flex-col w-[200px] gap-3">
+        <div class="flex flex-col w-full sm:w-[200px] gap-3 text-center lg:text-left">
           <p class="font-bold text-lg text-cp-light-grey">Tautan Terkait</p>
           <a href="https://minahasa.go.id" class="text-white hover:text-white transition-all duration-300">Pemkab Minahasa</a>
           <a href="{{ route('front.appointment') }}" class="text-white hover:text-white transition-all duration-300">Hubungi Kami</a>
@@ -201,14 +199,20 @@
         </div>
       </div>
     </div>
-    <div class="absolute -bottom-[135px] w-full">
-      <p class="font-extrabold text-[180px] leading-[375px] text-center text-white opacity-5">WALEWANGKO</p>
+    <div class="absolute -bottom-[70px] lg:-bottom-[135px] w-full">
+      <p class="block lg:hidden font-extrabold text-[100px] leading-[200px] text-center text-white opacity-5">WLKO</p>
+      <p class="hidden lg:block font-extrabold text-[100px] leading-[200px] lg:text-[180px] lg:leading-[375px] text-center text-white opacity-5">WALEWANGKO</p>
     </div>
   </footer>
 
 @endsection
 
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  
 @push('after-scripts')
+{{-- JavaScript --}}
+<script src="{{ asset('js/menu-toggle.js') }}"></script>
+
 <script>
   function toggleGallery(umkmId) {
     const gallery = document.getElementById('gallery-' + umkmId);

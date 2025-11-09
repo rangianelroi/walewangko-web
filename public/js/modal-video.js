@@ -5,7 +5,7 @@ const pathVideo = document.getElementById('path_video').value;
 const options = {
     placement: 'bottom-right',
     backdrop: 'dynamic',
-    backdropClasses: 'bg-gray-900/50 dark:bg-gray-900/80 fixed inset-0 z-40',
+    backdropClasses: 'bg-[#F6F7FA] dark:bg-gray-900/80 fixed inset-0 z-40',
     closable: true,
     onHide: () => {
         videoFrame.removeAttribute('src'); 

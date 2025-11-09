@@ -4,35 +4,35 @@
 
 <div class="bg-[#F6F7FA] w-full min-h-screen relative overflow-hidden">
     <!-- Header with Navbar -->
-    <div class="relative pt-10 z-10">
-        <div class="container max-w-[1130px] mx-auto px-4">
-            <x-navbar/>
-        </div>
+    <div class="relative z-50"> {{-- Z-50 ditambahkan untuk konsistensi --}}
+      <div class="container max-w-[1130px] mx-auto p-6 lg:p-0 lg:pt-10">
+         <x-navbar/>
+      </div>
     </div>
 
     <!-- Main Content -->
-    <div class="container max-w-[1130px] mx-auto px-4 py-20">
+    <div class="container max-w-[1130px] mx-auto p-6 lg:p-0 py-16 lg:py-20">
         <!-- Article Header -->
-        <div class="flex flex-col gap-[30px] mb-16">
+        <div class="flex flex-col gap-[30px] mb-10 lg:mb-16">
             <!-- Category Badge -->
             <div class="flex flex-col gap-[14px]">
                 <p class="badge w-fit bg-cp-pale-blue text-cp-light-blue p-[8px_16px] rounded-full uppercase font-bold text-sm">Berita Desa</p>
-                <h1 class="font-bold text-4xl md:text-[50px] leading-[54px] md:leading-[65px] text-cp-green max-w-[800px]">{{ $berita->judul }}</h1>
-                <div class="text-black text-lg">Rincian lengkap informasi mengenai {{ $berita->judul }}</div>
+                <h1 class="font-bold text-3xl leading-snug lg:text-[50px] lg:leading-[65px] text-cp-green max-w-[800px]">{{ $berita->judul }}</h1>
+                <div class="text-black text-sm lg:text-lg">Rincian lengkap informasi mengenai {{ $berita->judul }}</div>
             </div>
 
             <!-- Author and Metadata -->
-            <div class="flex flex-wrap items-center gap-4">
+            <div class="flex flex-col lg:flex-row items-start lg:items-center gap-4">
                 <div class="flex items-center gap-3">
                     <div class="w-12 h-12 rounded-full overflow-hidden bg-gray-100 flex shrink-0">
                         <img src="{{ asset('assets/icons/profile.svg') }}" class="w-full h-full object-cover p-2.5" alt="avatar">
                     </div>
                     <div>
-                        <p class="font-semibold text-[15px]">{{ $berita->penulis->name }}</p>
+                        <p class="font-semibold text-sm lg:text-lg">{{ $berita->penulis->name }}</p>
                         <p class="text-black text-sm">{{ $berita->created_at->format('d M Y') }}</p>
                     </div>
                 </div>
-            <div class="flex items-center gap-4 ml-auto">
+            <div class="flex items-center gap-4 w-full lg:w-auto lg:ml-auto mt-4 lg:mt-0">
                 <!-- Estimated Reading Time -->
                 <div class="flex items-center gap-2 text-black">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -62,10 +62,10 @@
         </div>
 
         <!-- Main Content -->
-        <div class="max-w-[800px] mx-auto">
+        <div class="max-w-[1000px] mx-auto">
             <!-- Featured Image -->
-            <div class="flex flex-col gap-[30px] mb-[50px]">
-                <div class="rounded-2xl overflow-hidden bg-white shadow-[0_10px_30px_0_#D1D4DF40] h-[550px]">
+            <div class="flex flex-col gap-[30px] mb-10 lg:mb-[50px]">
+                <div class="rounded-2xl overflow-hidden bg-white shadow-[0_10px_30px_0_#D1D4DF40] h-[240px] lg:h-[550px]">
                     <img src="{{ asset('storage/' .  $berita->thumbnail) }}" 
                          class="w-full h-full object-cover" 
                          alt="{{ $berita->judul }}">
@@ -73,7 +73,7 @@
             </div>
             
             <!-- Article Content -->
-            <article class="bg-white rounded-2xl p-5 mt-10 shadow-sm mb-[70px]">
+            <article class="bg-white rounded-2xl p-6 lg:p-[30px] shadow-sm mb-10 lg:mb-[70px]">
                 <div class="flex flex-col gap-[30px]">
                     <!-- Paragraf Utama -->
                     <div class="text-cp-black leading-relaxed article-content">
@@ -84,7 +84,7 @@
         </div>
 
         <!-- Back to Top Button -->
-        <button id="backToTop" class="fixed bottom-8 right-8 bg-cp-dark-blue text-white w-10 h-10 rounded-full shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300 hover:bg-cp-light-blue">
+        <button id="backToTop" class="fixed bottom-6 right-6 bg-cp-dark-blue text-white w-10 h-10 rounded-full shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300 hover:bg-cp-light-blue">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
             </svg>
@@ -115,15 +115,15 @@
         @endpush
     </div>
 </div>
-   <footer class="bg-cp-black w-full relative overflow-hidden mt-20">
-    <div class="container max-w-[1130px] mx-auto flex flex-wrap gap-y-4 items-center justify-between pt-[100px] pb-[220px] relative z-10">
-      <div class="flex flex-col gap-10">
+<footer class="bg-cp-black w-full relative overflow-hidden mt-20">
+    <div class="container max-w-[1130px] mx-auto flex flex-col lg:flex-row gap-10 lg:gap-y-4 items-center lg:items-start lg:justify-between pt-16 lg:pt-[100px] pb-40 lg:pb-[220px] relative z-10 p-6 lg:p-0">
+      <div class="flex flex-col gap-10 items-center lg:items-start">
         <div class="flex items-center gap-3">
           <div class="flex shrink-0 h-[43px] overflow-hidden">
-              <img src="{{asset('assets/logo/logo.svg')}}" class="object-contain w-full h-full" alt="logo">
+              <img src="{{asset('assets/logo/logo-minahasa.png')}}" class="object-contain w-full h-full" alt="logo">
           </div>
           <div class="flex flex-col">
-            <p id="CompanyName" class="font-extrabold text-xl leading-[30px] text-white">WALEWANGKO</p>
+            <p id="CompanyName" class="font-extrabold text-xl leading-[30px] text-cp-light-grey">WALEWANGKO</p>
             <p id="CompanyTagline" class="text-sm text-white">Kecamatan Langowan Barat</p>
           </div>
         </div>
@@ -150,32 +150,39 @@
           </a>
         </div>
       </div>
-      <div class="flex flex-wrap gap-[50px]">
-        <div class="flex flex-col w-[200px] gap-3">
-          <p class="font-bold text-lg text-white">Products</p>
-          <a href="" class="text-white hover:text-white transition-all duration-300">General Contract</a>
-          <a href="" class="text-white hover:text-white transition-all duration-300">Building Assessment</a>
-          <a href="" class="text-white hover:text-white transition-all duration-300">3D Paper Builder</a>
-          <a href="" class="text-white hover:text-white transition-all duration-300">Legal Constructions</a>
+      <div class="flex flex-wrap gap-10 lg:gap-[50px] w-full lg:w-auto justify-center lg:justify-start">
+        <div class="flex flex-col w-full sm:w-[200px] gap-3 text-center lg:text-left">
+          <p class="font-bold text-lg text-cp-light-grey">Navigasi Utama</p>
+          <a href="{{ route('front.about') }}" class="text-white hover:text-white transition-all duration-300">Profil Desa</a>
+          <a href="{{ route('front.team') }}" class="text-white hover:text-white transition-all duration-300">Aparat Desa</a>
+          <a href="{{ route('front.berita_index') }}" class="text-white hover:text-white transition-all duration-300">Informasi Desa</a>
+          <a href="{{ route('front.gallery') }}" class="text-white hover:text-white transition-all duration-300">Galeri</a>
         </div>
-        <div class="flex flex-col w-[200px] gap-3">
-          <p class="font-bold text-lg text-white">About</p>
-          <a href="" class="text-white hover:text-white transition-all duration-300">We’re Hiring</a>
-          <a href="" class="text-white hover:text-white transition-all duration-300">Our Big Purposes</a>
-          <a href="" class="text-white hover:text-white transition-all duration-300">Investor Relations</a>
-          <a href="" class="text-white hover:text-white transition-all duration-300">Media Press</a>
+       <div class="flex flex-col w-full sm:w-[200px] gap-3 text-center lg:text-left">
+          <p class="font-bold text-lg text-cp-light-grey">Potensi & Layanan Desa</p>
+          <a href="{{ route('front.umkm') }}" class="text-white hover:text-white transition-all duration-300">UMKM Desa</a>
+          <a href="{{ route('front.about') }}" class="text-white hover:text-white transition-all duration-300">Peta Wilayah Desa</a>
         </div>
-        <div class="flex flex-col w-[200px] gap-3">
-          <p class="font-bold text-lg text-white">Useful Links</p>
-          <a href="" class="text-white hover:text-white transition-all duration-300">Privacy & Policy</a>
-          <a href="" class="text-white hover:text-white transition-all duration-300">Terms & Conditions</a>
-          <a href="contact.html" class="text-white hover:text-white transition-all duration-300">Contact Us</a>
-          <a href="" class="text-white hover:text-white transition-all duration-300">Download Template</a>
+        <div class="flex flex-col w-full sm:w-[200px] gap-3 text-center lg:text-left">
+          <p class="font-bold text-lg text-cp-light-grey">Tautan Terkait</p>
+          <a href="https://minahasa.go.id" class="text-white hover:text-white transition-all duration-300">Pemkab Minahasa</a>
+          <a href="{{ route('front.appointment') }}" class="text-white hover:text-white transition-all duration-300">Hubungi Kami</a>
+          <a href="{{ route('front.kkt') }}" class="text-white hover:text-white transition-all duration-300">KKT 144 UNSRAT - Walewangko</a>
         </div>
       </div>
     </div>
-    <div class="absolute -bottom-[135px] w-full">
-      <p class="font-extrabold text-[250px] leading-[375px] text-center text-white opacity-5">WALE</p>
+    <div class="absolute -bottom-[70px] lg:-bottom-[135px] w-full">
+      <p class="block lg:hidden font-extrabold text-[100px] leading-[200px] text-center text-white opacity-5">WLKO</p>
+      <p class="hidden lg:block font-extrabold text-[100px] leading-[200px] lg:text-[180px] lg:leading-[375px] text-center text-white opacity-5">WALEWANGKO</p>
     </div>
-  </footer>
+</footer>
 @endsection
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+@push('after-scripts')
+{{-- JavaScript --}}
+<script src="{{ asset('js/menu-toggle.js') }}"></script>
+
+
+@endpush

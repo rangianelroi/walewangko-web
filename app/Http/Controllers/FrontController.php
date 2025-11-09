@@ -30,10 +30,10 @@ class FrontController extends Controller
     public function index(): View // <- Tambahkan method ini
     {
         $hero_section = HeroSection::orderByDesc('id')->take(1)->get();
-        $statistics = WalewangkoStatistic::orderByDesc('id')->take(32)->get();
+        $statistics = WalewangkoStatistic::orderBy('id')->take(32)->get();
         $principles = OurPrinciple::orderByDesc('id')->take(4)->get();
         $products = Product::orderByDesc('id')->take(4)->get();
-        $teams = OurTeam::orderByDesc('id')->take(4)->get();
+        $teams = OurTeam::orderBy('id')->take(4)->get();
         $testimonials = Testimonial::orderByDesc('id')->take(4)->get();
 
         // 2. TAMBAHKAN QUERY INI

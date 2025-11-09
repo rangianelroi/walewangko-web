@@ -114,7 +114,7 @@
           <textarea name="brief" id="" rows="6" class="appearance-none outline-none bg-white placeholder:font-normal placeholder:text-cp-black font-semibold w-full resize-none" placeholder="Tell us the project brief"></textarea>
         </div>
       </div>
-      <button type="submit" class="bg-cp-dark-blue p-5 w-full rounded-xl hover:shadow-[0_12px_30px_0_#312ECB66] transition-all duration-300 font-bold text-white">Book Appointment</button>
+      <button type="submit" class="bg-[#4A3728] p-5 w-full rounded-xl hover:shadow-[0_12px_30px_0_#312ECB66] transition-all duration-300 font-bold text-white">Book Appointment</button>
     </form>
   </div>
   <div id="Clients" class="container max-w-[1130px] mx-auto flex flex-col justify-center text-center gap-5 mt-20 relative z-10">
@@ -416,66 +416,64 @@
     </div>
   </div>
   <footer class="bg-cp-black w-full relative overflow-hidden mt-20">
-    <div class="container max-w-[1130px] mx-auto flex flex-wrap gap-y-4 items-center justify-between pt-[100px] pb-[220px] relative z-10">
-      <div class="flex flex-col gap-10">
+    <div class="container max-w-[1130px] mx-auto flex flex-col lg:flex-row gap-10 lg:gap-y-4 items-center lg:items-start lg:justify-between pt-16 lg:pt-[100px] pb-40 lg:pb-[220px] relative z-10 p-6 lg:p-0">
+      <div class="flex flex-col gap-10 items-center lg:items-start">
         <div class="flex items-center gap-3">
           <div class="flex shrink-0 h-[43px] overflow-hidden">
-              <img src="assets/logo/logo.svg" class="object-contain w-full h-full" alt="logo">
+              <img src="{{asset('assets/logo/logo-minahasa.png')}}" class="object-contain w-full h-full" alt="logo">
           </div>
           <div class="flex flex-col">
-            <p id="CompanyName" class="font-extrabold text-xl leading-[30px] text-white">ShaynaComp</p>
-            <p id="CompanyTagline" class="text-sm text-cp-light-grey">Build Futuristic Dreams</p>
+            <p id="CompanyName" class="font-extrabold text-xl leading-[30px] text-cp-light-grey">WALEWANGKO</p>
+            <p id="CompanyTagline" class="text-sm text-white">Kecamatan Langowan Barat</p>
           </div>
         </div>
         <div class="flex items-center gap-4">
           <a href="">
             <div class="w-6 h-6 flex shrink-0 overflow-hidden">
-              <img src="assets/icons/youtube.svg" class="w-full h-full object-contain" alt="youtube">
+              <img src="{{asset('assets/icons/youtube.svg')}}" class="w-full h-full object-contain" alt="youtube">
             </div>
           </a>
           <a href="">
             <div class="w-6 h-6 flex shrink-0 overflow-hidden">
-              <img src="assets/icons/whatsapp.svg" class="w-full h-full object-contain" alt="whatsapp">
+              <img src="{{asset('assets/icons/whatsapp.svg')}}" class="w-full h-full object-contain" alt="whatsapp">
             </div>
           </a>
           <a href="">
             <div class="w-6 h-6 flex shrink-0 overflow-hidden">
-              <img src="assets/icons/facebook.svg" class="w-full h-full object-contain" alt="facebook">
+              <img src="{{asset('assets/icons/facebook.svg')}}" class="w-full h-full object-contain" alt="facebook">
             </div>
           </a>
           <a href="">
             <div class="w-6 h-6 flex shrink-0 overflow-hidden">
-              <img src="assets/icons/instagram.svg" class="w-full h-full object-contain" alt="instagram">
+              <img src="{{asset('assets/icons/instagram.svg')}}" class="w-full h-full object-contain" alt="instagram">
             </div>
           </a>
         </div>
       </div>
-      <div class="flex flex-wrap gap-[50px]">
-        <div class="flex flex-col w-[200px] gap-3">
-          <p class="font-bold text-lg text-white">Products</p>
-          <a href="" class="text-cp-light-grey hover:text-white transition-all duration-300">General Contract</a>
-          <a href="" class="text-cp-light-grey hover:text-white transition-all duration-300">Building Assessment</a>
-          <a href="" class="text-cp-light-grey hover:text-white transition-all duration-300">3D Paper Builder</a>
-          <a href="" class="text-cp-light-grey hover:text-white transition-all duration-300">Legal Constructions</a>
+      <div class="flex flex-wrap gap-10 lg:gap-[50px] w-full lg:w-auto justify-center lg:justify-start">
+        <div class="flex flex-col w-full sm:w-[200px] gap-3 text-center lg:text-left">
+          <p class="font-bold text-lg text-cp-light-grey">Navigasi Utama</p>
+          <a href="{{ route('front.about') }}" class="text-white hover:text-white transition-all duration-300">Profil Desa</a>
+          <a href="{{ route('front.team') }}" class="text-white hover:text-white transition-all duration-300">Aparat Desa</a>
+          <a href="{{ route('front.berita_index') }}" class="text-white hover:text-white transition-all duration-300">Informasi Desa</a>
+          <a href="{{ route('front.gallery') }}" class="text-white hover:text-white transition-all duration-300">Galeri</a>
         </div>
-        <div class="flex flex-col w-[200px] gap-3">
-          <p class="font-bold text-lg text-white">About</p>
-          <a href="" class="text-cp-light-grey hover:text-white transition-all duration-300">We’re Hiring</a>
-          <a href="" class="text-cp-light-grey hover:text-white transition-all duration-300">Our Big Purposes</a>
-          <a href="" class="text-cp-light-grey hover:text-white transition-all duration-300">Investor Relations</a>
-          <a href="" class="text-cp-light-grey hover:text-white transition-all duration-300">Media Press</a>
+       <div class="flex flex-col w-full sm:w-[200px] gap-3 text-center lg:text-left">
+          <p class="font-bold text-lg text-cp-light-grey">Potensi & Layanan Desa</p>
+          <a href="{{ route('front.umkm') }}" class="text-white hover:text-white transition-all duration-300">UMKM Desa</a>
+          <a href="{{ route('front.about') }}" class="text-white hover:text-white transition-all duration-300">Peta Wilayah Desa</a>
         </div>
-        <div class="flex flex-col w-[200px] gap-3">
-          <p class="font-bold text-lg text-white">Useful Links</p>
-          <a href="" class="text-cp-light-grey hover:text-white transition-all duration-300">Privacy & Policy</a>
-          <a href="" class="text-cp-light-grey hover:text-white transition-all duration-300">Terms & Conditions</a>
-          <a href="contact.html" class="text-cp-light-grey hover:text-white transition-all duration-300">Contact Us</a>
-          <a href="" class="text-cp-light-grey hover:text-white transition-all duration-300">Download Template</a>
+        <div class="flex flex-col w-full sm:w-[200px] gap-3 text-center lg:text-left">
+          <p class="font-bold text-lg text-cp-light-grey">Tautan Terkait</p>
+          <a href="https://minahasa.go.id" class="text-white hover:text-white transition-all duration-300">Pemkab Minahasa</a>
+          <a href="{{ route('front.appointment') }}" class="text-white hover:text-white transition-all duration-300">Hubungi Kami</a>
+          <a href="{{ route('front.kkt') }}" class="text-white hover:text-white transition-all duration-300">KKT 144 UNSRAT - Walewangko</a>
         </div>
       </div>
     </div>
-    <div class="absolute -bottom-[135px] w-full">
-      <p class="font-extrabold text-[250px] leading-[375px] text-center text-white opacity-5">SHAYNA</p>
+    <div class="absolute -bottom-[70px] lg:-bottom-[135px] w-full">
+      <p class="block lg:hidden font-extrabold text-[100px] leading-[200px] text-center text-white opacity-5">WLKO</p>
+      <p class="hidden lg:block font-extrabold text-[100px] leading-[200px] lg:text-[180px] lg:leading-[375px] text-center text-white opacity-5">WALEWANGKO</p>
     </div>
   </footer>
 
